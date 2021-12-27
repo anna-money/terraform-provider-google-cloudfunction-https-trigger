@@ -2,6 +2,10 @@
 # you can turn it on using a cron schedule for regular testing.
 #
 name: Tests
+env:
+  CLOUD_FUNCTION_URL: ${{ secrets.CLOUD_FUNCTION_URL }}
+  CREDENTIALS_JSON: ${{ secrets.CREDENTIALS_JSON }}
+
 on:
   pull_request:
     paths-ignore:
