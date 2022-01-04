@@ -1,4 +1,4 @@
-module anna-google-cloudfunction-https-trigger-terraform
+module terraform-provider-google-cloudfunction-https-trigger
 
 go 1.15
 

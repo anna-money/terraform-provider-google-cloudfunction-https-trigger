@@ -23,6 +23,11 @@ func TestProvider(t *testing.T) {
 }
 
 func testAccPreCheck(t *testing.T) {
+	if v := os.Getenv("TF_ACC"); v == "" {
+		t.Skip("Acceptance tests and bootstrapping skipped unless env 'TF_ACC' set")
+		return
+	}
+
 	if v := os.Getenv("CREDENTIALS_JSON"); v == "" {
 		t.Fatal("CREDENTIALS_JSON must be set for acceptance tests")
 	}
