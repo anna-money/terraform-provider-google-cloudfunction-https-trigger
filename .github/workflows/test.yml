@@ -2,9 +2,6 @@
 # you can turn it on using a cron schedule for regular testing.
 #
 name: Tests
-env:
-  CLOUD_FUNCTION_URL: ${{ secrets.CLOUD_FUNCTION_URL }}
-  CREDENTIALS_JSON: ${{ secrets.CREDENTIALS_JSON }}
 
 on:
   pull_request:
@@ -81,10 +78,10 @@ jobs:
       run: |
         go mod download
         
-    - name: TF acceptance tests
+    - name: TF tests
       timeout-minutes: 10
       env:
-        TF_ACC: "1"
+        TF_ACC: "0"
 
         # Set whatever additional acceptance test env vars here. You can
         # optionally use data from your repository secrets using the
