@@ -81,8 +81,6 @@ jobs:
     - name: TF tests
       timeout-minutes: 10
       env:
-        TF_ACC: "0"
-
         # Set whatever additional acceptance test env vars here. You can
         # optionally use data from your repository secrets using the
         # following syntax:
