@@ -18,7 +18,7 @@ func TestAccDataSourceCloudFunctionInvoke(t *testing.T) {
 				Config: getConfig(),
 				Check: resource.ComposeTestCheckFunc(
 					resource.TestMatchResourceAttr(
-						"data.cloudfunction_invoke_data_source.foo", "cloud_function_url", regexp.MustCompile(os.Getenv("CLOUD_FUNCTION_URL"))),
+						"data.google-cloudfunction-https-trigger_cloudfunction_invoke_data_source.foo", "cloud_function_url", regexp.MustCompile(os.Getenv("CLOUD_FUNCTION_URL"))),
 				),
 			},
 		},
@@ -30,7 +30,7 @@ func getConfig() string {
 }
 
 const testAccDataSourceCloudFunctionInvoke = `
-data "cloudfunction_invoke_data_source" "foo" {
+data "google-cloudfunction-https-trigger_cloudfunction_invoke_data_source" "foo" {
   cloud_function_url = "%s"
 }
 `

@@ -38,7 +38,7 @@ func New(version string) func() *schema.Provider {
 			},
 
 			DataSourcesMap: map[string]*schema.Resource{
-				"cloudfunction_invoke_data_source": dataSourceCloudFunctionInvoke(),
+				"google-cloudfunction-https-trigger_cloudfunction_invoke_data_source": dataSourceCloudFunctionInvoke(),
 			},
 			ResourcesMap: map[string]*schema.Resource{},
 
