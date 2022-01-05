@@ -16,7 +16,7 @@ import (
 func dataSourceCloudFunctionInvoke() *schema.Resource {
 	return &schema.Resource{
 		// This description is used by the documentation generator and the language server.
-		Description: "Sample data source in the Terraform provider scaffolding.",
+		Description: "Data source that request a cloud function and fetch a response body and headers",
 
 		ReadContext: dataSourceCloudFunctionInvokeRead,
 
@@ -32,6 +32,7 @@ func dataSourceCloudFunctionInvoke() *schema.Resource {
 				Elem: &schema.Schema{
 					Type: schema.TypeString,
 				},
+				Description: "Returned body of a request",
 			},
 			"response_headers": {
 				Type:     schema.TypeMap,
@@ -39,6 +40,7 @@ func dataSourceCloudFunctionInvoke() *schema.Resource {
 				Elem: &schema.Schema{
 					Type: schema.TypeString,
 				},
+				Description: "HTTP headers from a response",
 			},
 		},
 	}
