@@ -1,17 +1,21 @@
-# See GitHub's docs for more information on this file:
-# https://docs.github.com/en/free-pro-team@latest/github/administering-a-repository/configuration-options-for-dependency-updates
 version: 2
 updates:
-  # Maintain dependencies for GitHub Actions
+  - package-ecosystem: gomod
+    directory: "/"
+    schedule:
+      interval: monthly
+    labels:
+      - dependencies
+      - go
+    reviewers:
+      - "anna-money/sre-team"
   - package-ecosystem: "github-actions"
     directory: "/"
+    rebase-strategy: disabled
     schedule:
-      # Check for updates to GitHub Actions every weekday
-      interval: "daily"
-
-  # Maintain dependencies for Go modules
-  - package-ecosystem: "gomod"
-    directory: "/"
-    schedule:
-      # Check for updates to Go modules every weekday
-      interval: "daily"
+      interval: monthly
+    labels:
+      - dependencies
+      - github_actions
+    reviewers:
+      - "anna-money/sre-team"
